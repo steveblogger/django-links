@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="ad">
+<script type="text/javascript">
+  atOptions = {
+    'key': 'c8333373f78c3a380d292de882628e9b',
+    'format': 'iframe',
+    'height': 250,
+    'width': 300,
+    'params': {}
+  };
+  document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.profitabledisplaynetwork.com/c8333373f78c3a380d292de882628e9b/invoke.js"></scr' + 'ipt>');
+</script></div>
+{% if images %}
+<div class="box">
+  {% for image in images %}
+  <div class="container">
+    <img class="pic" src="{{ image.image.url }}" alt="{{ image.name }}">
+    <h2><a href={{image.link}}>{{image.name}}</a></h2>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="box-container">
+  <h2>No links Posted</h2>
+</div>
+{% endif %}
+
+{% if images.has_other_pages %}
+<div class="pagination">
+  <p class="current-page">
+    Page {{ images.number }} of {{ images.paginator.num_pages }}.
+  </p>
+  <span class="step-links">
+    {% if images.has_previous %}
+    <a href="?page=1"><button> go to first page</button></a>
+    <a href="?page={{ images.previous_page_number }}"><button>go to previous page</button></a>
+    {% endif %}
+
+    {% if images.has_next %}
+    <a href="?page={{ images.next_page_number }}"><button>next</button></a>
+    <a href="?page={{ images.paginator.num_pages }}"><button>last</button></a>
+    {% endif %}
+  </span>
+</div>
+<br /><br />
+{% endif %}
+
+{% endblock %}

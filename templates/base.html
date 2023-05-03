@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/myscript.js' %}"></script>
+</head>
+
+<body>
+    <header>
+        {% block header %}
+        <h1>XXX Mega Links</h1>
+        {% endblock %}
+    </header>
+    </script>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}&copy; 2023 - My Site{% endblock %}
+    </footer>
+</body>
+
+</html>
